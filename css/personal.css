@@ -1,0 +1,25 @@
+.reveal section img {
+	background:none;
+	border:none;
+	box-shadow:none;
+}
+
+.magician {
+	float:left;
+}
+
+.book {
+	width:15%;
+	height:auto;
+}
+
+.lightbulb {
+	width:8%;
+	height:auto;
+	float:left;
+}
+
+.compiler-img {
+	width:30%;
+	height:auto;
+}

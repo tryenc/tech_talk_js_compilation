@@ -16,19 +16,11 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<!-- Theme applied to the presentation -->
-		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="css/personal.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -40,167 +32,202 @@
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
+
 			<div class="slides">
+
+				<section><!--================= MAGIC TRICK 1=================-->
+					<h3>Javascript Magic</h3>
+					<iframe data-src="https://repl.it/Bk2R/4" width="800px" height="300px"></iframe>
+				</section>
+
+				<section><!--================= MAGIC TRICK 2=================-->
+					<h3>Javascript Magic</h3>
+					<iframe data-src="https://repl.it/Bk2R/2" width="800px" height="300px"></iframe>
+				</section>
 				
-				<section><!--================= SLIDE =================-->
-					<h2>JavaScript and Compiler Theory</h2>
-					<h3>A deep dive into JS compilation and how it can lead to unexpected behavior</h3>
-					<p>
-						<small>Created by Chris Tryens and based on <i>You Don't Know JS: Scope and Closures</i> by Kyle Simpson</small>
-					</p>
+				<section><!--title-->
+					<h2>JavaScript's Biggest Secrets Finally Revealed</h2>
+					<h3 class="fragment fade-in">A Look Behind the Curtain at the JavaScript Engine</h3>
+					<img class="magician" src="media/Magics_Biggest_Secrets_Finally_Revealed_Wallpaper.png">
+					<aside class="notes">
+						Let's start by taking a look at what happens when we execute JavaScript
+					</aside>
 				</section>
 
 				<section><!--================= SLIDE =================-->
-					<h2>Bermuda Triangle of JavaScript</h2>
-					<pre><code data-trim>
-a = 2;
-var a;
-console.log(a);
-					</code></pre>
-					<pre class="fragment"><code data-trim>
-// 2
-					</code></pre>
+					<h3>Program Language Implementation</h3>
+					<p>A system for executing computer programs</p>
+					<!-- "In our case" A diagram showing CSS, HTML, and Javascript being turned into a website -->
+					<aside class="notes">
+						If you've ever heard someone refer to a language as 'compiled' or 'interpreted', they're talking about how a programming language is implemented. Implementation is basically what happens between your source code and the machine running machine code. There are two general approaches to implementation...
+					</aside>
 				</section>
 
-				<section><!--================= SLIDE =================-->
-					<h2>Bermuda Triangle of JavaScript</h2>
-					<pre><code data-trim>
-console.log(a);
-var a = 2;
-					</code></pre>
-					<pre class="fragment"><code data-trim>
-// undefined
-					</code></pre>
+				<section><!--2 Language Implementations-->
+					<h3>2 General Approaches to Implementation</h3>
+					<ol>
+						<li class="fragment fade-in" data-fragment-index="1">Compilation</li>
+						<li class="fragment fade-in" data-fragment-index="2">Interpretation</li>
+<!-- 						<div class="fragment fade-in" data-fragment-index="3">
+							<img src="media/lightbulb.png" class="lightbulb">
+							<p>Sound Smarter: Interpretation and Compilation aren't properties of a programming language, they're properties of a language's <em>implementation</em>.</p>
+						</div> -->
+					</ol>
+					<aside class="notes">
+						<!-- Shuld this come later? -->
+						It’s not accurate to say that a language is interpreted or compiled because interpretation and compilation are both properties of the implementation of that particular language, and not a property of the language itself. So, in theory, any language can be compiled or interpreted – it just depends on what the particular implementation that you are using does.
+					</aside>
 				</section>
 
+				<section><!--Interpretation-->
+					<h2>Interpretation</h2>
+					<p>Source code is read by an interpreter which then executes the code</p>
+					<p>Examples: Ruby and Python</p>			
+					
+					<aside class="notes">
+						You and your target machine speak two different languages: you speak source code and it speaks machine code. If you and your target machine were sitting in the same room, an interpreter would be like a translater that's helping the two of you to communicate. You would only have access to the translation during translation. The translation would be done on-the-fly and consequently, it might not be 'optimized' in the same way that it could be if say the translator had the ability to take the source code home and take the extra time to make sure all the colloquialisms made sense. Think of Google translate vs. an actual human being who has the ability to look at the context and render a better translation.
+	<!-- Not sure how accurate this is				Imagine an interpreter like an event emitter that exists between the source code and the machine. The interpreter has a listener set up for every operation the source code could run and they're all linked to machine code equivalent. When the source code's multiplication event is emitted, the interpreter's multiplication listener 'hears' it, which triggers the execution of the machine-code equivalent of multiplication. -->
+					</aside>
+				</section>
 
-				<section><!--================= SLIDE =================-->
+				<section><!--Compilation-->
+					<h2>Compilation</h2>
+					<p>Source code is translated into machine code which the computer can then execute on its own</p>
+					<!-- C3PO translating between -->
+					<!-- https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=video&cd=1&cad=rja&uact=8&ved=0ahUKEwi4lvOXueTKAhXEqR4KHbHWBtQQtwIIHDAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZdSqrtKQ37E&usg=AFQjCNEJAbfQNoP4TpvXn3Kf8OaE9KYw9Q&sig2=dAvnORHFaAci_-hchKUuyw -->
+					<p>Examples: Java and C</p>	
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<section><!--Compilation vs. Interpretation-->
+					<h2>Compilation vs. Interpretation</h2>
+					<div>
+						<h4>Compilation</h4>
+						<ul>
+							<li>Native code is faster</li>
+							<li>Allows for optomization</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Interpretation</h4>
+						<ul>
+							<li>Easier to implement (compilers are hard to write)</li>
+							<li>Code can be executed on the fly without requiring an intermediary compilation step</li>
+							<li>Tends to be more portable, meaning it can be used in different environments</li>
+							<li>Better suited to dynamic languages, like JavaScript</li>
+						</ul>					
+					</div>
+					<aside class="notes">
+						So which one is JavaScript? Although JavaScript is technically compiled, it's a type of compilation that's as close to interpretation as you can get.
+					</aside>	
+				</section>
+
+				<section>
+					<h2>Just-in-Time</h2>
+					<p>Source code is 'compiled' <em>during</em> execution so unlike other languages which are traditionally compiled, JavaScript's compilation does NOT happen in a separate build step beforehand</p>
+					<ul>
+						<li>Compilation's speed</li>
+						<li>Interpretation's flexibilty for handling dynamic languages</li>
+					</ul>
+					<aside class="notes"><!-- These are speaker notes. Hit 's' to access them -->
+					Just-in-time combines the the advantages and disadvantages of compiled and interpreted languages. The important take away is that JavaScript implements a compiler, which means that source code is going to be read by the JavaScript engine twice: once during compilation and once during execution.
+					</aside>
+				</section>
+
+				<section>
 					<h2>Compilation Before Execution</h2>
 					<p>var a = 2</p>
 					<p class="fragment">DECLARATION: var a</p>
 					<p class="fragment">ASSIGNMENT: a = 2</p>
+					<aside class="notes">
+						Although we see 'var a = 2;' as one statement, the JavaScript Engine sees it as two: Declaration, which compiler will handle, and Assignment, which it will handle. When this code is executed, compiler will check to see if 'a' has already been assigned in the current scope, if it hasn't it will declare it and set it to the value of undefined. When compiler is done, Engine will begin. When Engine sees the variable 'a', it will check to see if it's available in the current scope and if so, assign it the value 2. This is where the concept of hoisting comes in.
+					</aside>
 				</section>
 
-				<section><!--================= SLIDE =================-->
+				<section>
 					<h2>Hoisting</h2>
 					<p class="fragment fade-in" data-fragment-index="2">var a;</p>
 					<p>a = 2;</p>
 					<p class="fragment fade-out" data-fragment-index="1">var a;</p>
 					<p>console.log(a);</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						In the example we saw earlier, Compiler would encounter 'var a = 2', and hoist the declaration 'var a' to the top of the scope, leaving the assignment 'a=2;' in place. So where are all these variables and their assigned values stored?
 					</aside>
 				</section>
 
 				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					<h2>Execution Context Object</h2>
+					<p>Execution Context = function()</p>
+					<aside class="notes">
+						'Execution Context' is kind of a clunky phrase so lets take a second to put it in perspective. The execution we're referring to, is the function's, and by 'execution', we're talking about the function being run. In the same way that an athlete can be in the context of running, or jumping, or cheating we talk about JavaScript functions in the context of executing. So when we say the Execution Context, we're talking about the context in which a function is run. What does the Execution Context Object do? It tracks all the variables and functions which make up the context of the function's execution. This should sound familiar. When someone says
+					</aside>
+				</section>
+
+
+				<section>
+					<h2>Execution Context Object</h2>
+					<h4 class="fragment" data-fragment-index="5">Compilation</h4><h4 class="fragment" data-fragment-index="5">Execution</h4>
+					<div style="display:inline-block;float:left;text-align:left;">
+						<p>function() {</p>				
+						<p class="fragment" data-fragment-index="1">var a;</p>
+						<p class="fragment" data-fragment-index="3">var b;</p>
+						<p><span class="fragment fade-out" data-fragment-index="1">var</span> a = 1;</p>
+						<p><span class="fragment fade-out" data-fragment-index="3">var</span> b = 2;</p>
+						<p>}()</p>
+					</div>
+					<div style="display:inline-block;float:right;text-align:left;">
+						<p>{</p>
+						<p><span class="fragment" data-fragment-index="2">a:</span><span>1</span><span class="fragment" data-fragment-index="2">undefined</span></p>
+						<p><span class="fragment" data-fragment-index="4">b:</span><span>2</span><span class="fragment" data-fragment-index="4">undefined</span></p>
+						<p>}</p>
+					</div>
+					<aside class="notes">
+
+					</aside>
 				</section>
 
 				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
+					<h2>Three Things the Compilation Does</h2>
+					<ol>
+						<li>Declares and </li>
+					</ol>
 				</section>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
+				<section><!--================= SLIDE =================-->
+					<h2>The Lifecycle of the Execution Object</h2>
+					<div style="float:left">
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">outer(1);</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="2">function outer ( arg ) {</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="3">var local_var = 'foo';</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">function inner () {</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">console.log('inner');</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">}</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">inner();</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">}</p>
+					</div>
+					<div style="float:right">
+						<p>{</p>
+						<p>arg : 1,</p>
+						<p>local_var : undefined</p>
+						<p>inner : function () {</p>
+						<p>console.log('inner');</p>
+						<p>}</p>
+						<p>}</p>
+					</div>
+
 				</section>
 
 				<section>
 					<h2>Dive Even Deeper With:</h2>
 					<ul>
 						<li><a href="https://github.com/getify/You-Dont-Know-JS/tree/master/scope%20%26%20closures"><i>You Don't Know JS: Scope & Closures</i></a> by Kyle Simpson</li>
-						<img src="http://it-ebooks.info/images/ebooks/3/you_dont_know_js_scope__closures.jpg"
+						<img class="book" data-src="media/you_dont_know_js_scope__closures.jpg" height="300" width="200">
+						<li>Chapter 2 of <i>Single Page Web Applications: JavaScript end-to-end</i> by Michael Mikowski and Josh Powell</li>
+						<img class="book" data-src="media/SPA.jpg" height="325" width="260">
+						<li><a href="http://www.programmerinterview.com/index.php/general-miscellaneous/whats-the-difference-between-a-compiled-and-an-interpreted-language/">Compiled vs Interpreted Language</a></li>
 					</ul>
 				</section>
 
@@ -224,6 +251,9 @@ Reveal.addEventListener( 'customevent', function() {
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 				// Optional reveal.js plugins
+				// 'async' option set to 'true' is we want the plugin to load after reveal.js
+				// 'callback' option invokes a function after that library has loaded
+				// 'condition' option only loads the 'src' if the function passed to it evaluates to true
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
