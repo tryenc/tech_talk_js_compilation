@@ -71,3 +71,78 @@
 	</div>
 
 </section>
+
+<div class="fragment fade-in" data-fragment-index="3">
+	<img src="media/lightbulb.png" class="lightbulb">
+	<p>Sound Smarter: Interpretation and Compilation aren't properties of a programming language, they're properties of a language's <em>implementation</em>.</p>
+</div>
+<aside class="notes">
+	It’s not accurate to say that a language is interpreted or compiled because interpretation and compilation are both properties of the implementation of that particular language, and not a property of the language itself. So, in theory, any language can be compiled or interpreted – it just depends on what the particular implementation that you are using does.
+</aside>
+
+				<section>
+					<h2>Execution Context Object</h2>
+					<span class="fragment fade-out" data-fragment-index="2">
+					<h4 class="fragment" data-fragment-index="1">
+					Compilation</h4></span><h4 class="fragment" data-fragment-index="6">Execution</h4>
+					<div style="display:inline-block;float:left;text-align:left;">
+						<p>function() {</p>				
+						<p class="fragment" data-fragment-index="2">var a;</p>
+						<p class="fragment" data-fragment-index="4">var b;</p>
+						<p><span class="fragment fade-out" data-fragment-index="2">var</span> a = 1;</p>
+						<p><span class="fragment fade-out" data-fragment-index="4">var</span> b = 2;</p>
+						<p>}()</p>
+					</div>
+					<div style="display:inline-block;float:right;text-align:left;">
+						<p>{</p>
+						<p><span class="fragment" data-fragment-index="3">a:</span><span class="fragment" data-fragment-index="10">1</span><span class="fragment" data-fragment-index="3">undefined</span></p>
+						<p><span class="fragment" data-fragment-index="5">b:</span><span class="fragment" data-fragment-index="10">2</span><span class="fragment" data-fragment-index="5">undefined</span></p>
+						<p>}</p>
+					</div>
+					<aside class="notes">
+						(CLICK - COMPILER)
+
+						During the first run through the code, 
+
+						(CLICK - HOIST AND ADD TO OBJECT)
+
+						the compiler hoists all variable declarations to the top of the scope and adds them as keys to the execution context object.
+
+						Next...
+
+						(CLICK - EXECUTION)
+
+						...the Engine executes the code. When it comes across 'a' and 'b', it looks for them on the LOCAL Execution Context Object. If it can't find them there, it will check the next outer Execution Context Object. If it finds them it...
+
+						(CLICK - ASSIGN)
+
+						...assigns values to them.
+
+						(CLICK - NEXT SLIDE)
+					</aside>
+				</section>
+
+								<section>
+				
+					<h2>The Lifecycle of the Execution Context Object</h2>
+					<div style="float:left">
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">outer(1);</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="2">function outer ( arg ) {</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="3">var local_var = 'foo';</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">function inner () {</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">console.log('inner');</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">}</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">inner();</p>
+						<p style="text-align:left;" class="fragment" data-fragment-index="1">}</p>
+					</div>
+					<div style="float:right">
+						<p>{</p>
+						<p>arg : 1,</p>
+						<p>local_var : undefined</p>
+						<p>inner : function () {</p>
+						<p>console.log('inner');</p>
+						<p>}</p>
+						<p>}</p>
+					</div>
+
+				</section>

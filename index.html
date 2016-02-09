@@ -39,7 +39,17 @@
 					<h3>Javascript Magic</h3>
 					<iframe data-src="https://repl.it/Bkwm/1" width="800px" height="300px"></iframe>
 					<aside class="notes">
-						Programmers who write in JavaScript often have a much shallower understanding of what's going on underneath the hood and for that reason, unusual behavior is usually chalked up to JavaScript Magic. So let's begin with a few magic trick. Some programmers expect the declaration 'var DavidBlaine;' on line 2 to overwrte 'I can levitate' and therefore log 'undefined'
+						Today we're going to talk about JavaScript Magic.
+
+						A lot of JavaScript programmers are satisfied with having little to no understanding of what's going on underneath the hood. When their code behaves in unexpected ways they'll chalk it up to JavaScript magic. Let's begin then with a few JavaScript magic tricks. 
+
+						(DON'T RUN - REFER TO CODING EXAMPLE)
+
+						Some programmers expect the declaration 'var DavidBlaine;' on line 2 to overwrite its previous assigment of 'I can levitate' and therefore log 'undefined'
+
+						(RUN CODE)
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
@@ -47,8 +57,15 @@
 					<h3>Javascript Magic</h3>
 					<iframe data-src="https://repl.it/Bkwm/0" width="800px" height="400px"></iframe>
 					<aside class="notes">
+						(EXAMPLE)
+
 						What do you think this one will log?
-						Today we're going to break the ignorant JavaScripter's code and look behind the curtain...
+
+						(RUN CODE)
+
+						Today we're going to break the ignorant JavaScripter's code and look behind the secret curtain...
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
@@ -57,16 +74,33 @@
 					<h3 class="fragment fade-in">A Look Behind the Curtain at the JavaScript Engine</h3>
 					<img class="magician" src="media/Magics_Biggest_Secrets_Finally_Revealed_Wallpaper.png">
 					<aside class="notes">
-						To understand what's going on here, we have to start with...
+						(READ TITLE)
+
+						(CLICK SUBHEADING)
+
+						(READ SUBHEADING)
+
+						To understand what's happening in the previous examples, we have to start broad.
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
 				<section><!--================= SLIDE =================-->
 					<h3>Program Language Implementation</h3>
 					<p>A system for executing computer programs</p>
-					<!-- "In our case" A diagram showing CSS, HTML, and Javascript being turned into a website -->
 					<aside class="notes">
-						If you've ever heard someone refer to a language as 'compiled' or 'interpreted', they're talking about how a programming language is implemented. Implementation is basically what happens between the source code you write and the machine running machine code. There are two general approaches to implementation...
+						(READ TITLE)
+
+						(READ SUBHEADING)
+
+						If you've ever heard someone refer to a language as 'compiled' or 'interpreted', what they're actually talking about is how a programming language is implemented. Implementation is a very complicated topic and can involve a lot of minunte steps, but for the scope of this talk we're going to keep it pretty generalized. 
+
+						Program Language Implementation is basically what happens between the source code you write and the corresponding machine code that your target machine will run.
+
+						There are two general approaches to implementation...
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
@@ -75,54 +109,111 @@
 					<ol>
 						<li class="fragment fade-in" data-fragment-index="1">Compilation</li>
 						<li class="fragment fade-in" data-fragment-index="2">Interpretation</li>
-<!-- 						<div class="fragment fade-in" data-fragment-index="3">
-							<img src="media/lightbulb.png" class="lightbulb">
-							<p>Sound Smarter: Interpretation and Compilation aren't properties of a programming language, they're properties of a language's <em>implementation</em>.</p>
-						</div> -->
+
 					</ol>
 					<aside class="notes">
-						<!-- Shuld this come later? -->
-						It’s not accurate to say that a language is interpreted or compiled because interpretation and compilation are both properties of the implementation of that particular language, and not a property of the language itself. So, in theory, any language can be compiled or interpreted – it just depends on what the particular implementation that you are using does.
+						(CLICK - COMPILATION)
+
+						(CLICK - INTERPRETATION)
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
 				<section><!--Interpretation-->
 					<h2>Interpretation</h2>
-					<p>An Interpreter is a program that reads your source code and translates and executes it instruction by instruction</p>
+					<p>An Interpreter is a program that goes statement by statement through your source code and executes the corresponding machine code directly on the target machine</p>
 					<p class="fragment fade-in">Examples: Ruby and Python</p>			
 					
 					<aside class="notes">
-						You and your target machine speak two different languages: you speak source code and it speaks machine code. If you and your target machine were sitting in the same room, an interpreter would be like a translater that's helping the two of you to communicate. You would only have access to the translation during translation. The translation would be done on-the-fly and consequently, it might not be 'optimized' in the same way that it could be if say the translator had the ability to take the source code home and take the extra time to make sure all the colloquialisms made sense. Think of Google translate vs. an actual human being who has the ability to look at the context and render a better translation.
+						(READ ON-SCREEN DESCRIPTION)
+
+						Imagine you and your target machine as two people who speak different languages... 
+
+						...which you do: you speak source code and it speaks machine code. 
+
+						If you and your target machine were sitting in the same room, an interpreter would be like a translater that's helping the two of you to communicate. 
+
+						Important things to note are the fact that you would only have access to the translation DURING the translation. 
+
+						The translation would be done on-the-fly and consequently, it might not be 'optimized' in the same way that it could be if say the translator had the ability to take the source code home and take the extra time to make sure all the colloquialisms made sense. 
+
+						Think of Google translate vs. an actual human being. The translation that Google outputs is far from perfect, it's not optimal, but you get the gist of what it's saying.
+
+						Examples of languages that traditionally implement an interpreter are...
+
+						(CLICK - EXAMPLE LANGUAGES)
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
 				<section><!--Compilation-->
 					<h2>Compilation</h2>
 					<p>A compiler is a program that reads source code, translates it into machine code, and then returns the translation <em>without</em> running it</p>
-					<!-- C3PO translating between -->
-					<!-- https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=video&cd=1&cad=rja&uact=8&ved=0ahUKEwi4lvOXueTKAhXEqR4KHbHWBtQQtwIIHDAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZdSqrtKQ37E&usg=AFQjCNEJAbfQNoP4TpvXn3Kf8OaE9KYw9Q&sig2=dAvnORHFaAci_-hchKUuyw -->
+
 					<p class="fragment fade-in">Examples: Java and C</p>	
 					<aside class="notes">
-						The important take away here is that compilation does not result in the code being run by the machine. It's merely a build step.
-						That being said, which one is JavaScript? Although JavaScript is usually categorized as 'interpreted', including on Wikipedia, it's technically compiled, but it's a type of compilation that's as close to interpretation as you can get.
+						(READ TITLE)
+
+						(READ DESCRIPTION)
+
+						Again, the compiler is the translator that takes it's times making sure the translation is accurate and optimized.
+						The most important take away here is that compilation does not result in the code being run by the machine. It's merely a build step.
+						
+						Examples of languages that implement compilers include...
+						
+						(CLICK - EXAMPLES)
+
+						That being said, which one is JavaScript? 
+
+						Although JavaScript is usually categorized as 'interpreted', including on Wikipedia, it's technically compiled, but it's a type of compilation that's as close to interpretation as you can get.
+
+						(CLICK - NEXT SLIDE)
+
 					</aside>
 				</section>
 
 				<section>
 					<h2>Just-in-Time</h2>
-					<p>Source code is 'compiled' <em>during</em> execution so unlike other languages that implement compilers, JavaScript's compilation does NOT happen in a separate build step beforehand</p>
+					<p>Source code is 'compiled' <em>during</em> execution.</p>
+					<p>Unlike other languages that implement compilers, JavaScript's compilation does <em>not</em> happen in a separate build step beforehand.</p>
 					<aside class="notes">
-						Just-in-time combines the the advantages and disadvantages of compiled and interpreted languages. The important take away is that JavaScript implements a compiler, which means that source code is going to be read by the JavaScript engine twice: once during compilation and once during execution. Going forward it will help to think of this process as being a collaboration between two partners: the compiler and the JavaScript Engine.
+						(READ TITLE)
+
+						(READ DESCRIPTION)
+
+						Since the compiler is a component of the JavaScript Engine, your source code will ACTUALLY be read by the engine twice: once during compilation and once during execution. 
+
+						Going forward it will help to think of this process as being a collaboration between two partners: the compiler and the JavaScript Engine. 
+
+						So what does the compiler do?
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
 				<section>
 					<h2>Compilation Before Execution</h2>
 					<p>var a = 2</p>
-					<p class="fragment">DECLARATION: var a</p>
-					<p class="fragment">ASSIGNMENT: a = 2</p>
+					<p class="fragment fade-in" data-fragment-index="1">DECLARATION</p>
+					<p class="fragment fade-in" data-fragment-index="2">ASSIGNMENT</p>
 					<aside class="notes">
-						Although we see 'var a = 2;' as one statement, the JavaScript Engine sees it as two: Declaration, which compiler will handle, and Assignment, which it will handle. When this code is executed, compiler will check to see if 'a' has already been assigned in the current scope, if it hasn't it will declare it and set it to the value of undefined. When compiler is done, Engine will begin. When Engine sees the variable 'a', it will check to see if it's available in the current scope and if so, assign it the value 2. This is where the concept of hoisting comes in. Going back to the earlier example...
+						For one thing, it takes care of declaring variable and functions.
+
+						Although we see 'var a = 2;' as one statement, the JavaScript Engine sees it as two: 
+
+						(CLICK - DECLARATION)
+
+						Declaration, which compiler will handle, 
+
+						(CLICK - ASSIGNMENT)
+
+						and Assignment, which it will handle. When this code is executed, compiler will check to see if 'a' has already been assigned in the current scope, if it hasn't it will declare it and set it to the value of undefined. When compiler is done, Engine will begin. When Engine sees the variable 'a', it will check to see if it's available in the current scope and if so, assign it the value 2. 
+
+						This is where the concept of hoisting comes in. Going back to the earlier example...
+
+						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
 
@@ -133,72 +224,245 @@
 					<p class="fragment fade-out" data-fragment-index="1">var DavidBlaine;</p>
 					<p>console.log(DavidBlaine);</p>
 					<aside class="notes">
-						In the example we saw earlier, Compiler would encounter 'var DavidBlaine = "I can levitate"', and hoist the declaration 'var DavidBlaine' to the top of the scope, leaving the assignment 'DavidBlaine='"I can levitate";' in place. So where are all these variables and their assigned values stored?
+						Compiler would encounter 'var DavidBlaine = "I can levitate"', 
+
+						(CLICK - HOIST)
+
+						and hoist the declaration 'var DavidBlaine' to the top of the scope, leaving the assignment 'DavidBlaine='"I can levitate";' in place.
+
+						Keep in mind that's it's considered best practice to make all variable declarations at the top of every scope because this is most consistent with how the JavaScript Engine is going to process them.
+
+						So where are all these variables and their assigned values stored?
 					</aside>
 				</section>
 
 				<section>
 					<h2>Execution Context Object</h2>
-					<p>Execution Context = function()</p>
+					<p class="fragment fade-in" data-fragment-index="1">Execution Context = function()</p>
 					<aside class="notes">
-						'Execution Context' is kind of a clunky phrase so lets take a second to put it in perspective. The execution we're referring to, is the function's, and by 'execution', we're talking about the function being run. In the same way that an athlete can be in the context of running, or jumping, or cheating we talk about JavaScript functions in the context of executing. So when we say the Execution Context, we're talking about the context in which a function is run. What does the Execution Context Object do? It tracks all the variables and functions which make up the context of the function's execution. This should sound familiar. When someone says something's 'in scope', they're referring to whether or not it's on the Execution Context Object. Let's take a quick look at how the compiler and engine use it.
+						'Execution Context' is kind of a clunky phrase so lets take a second to put it in perspective. 
+
+						The execution we're referring to, is the function's, and by 'execution', we're talking about the function being run.
+
+						(CLICK - EXECUTION = FUNCTION())
+
+						In the same way that an athlete can be in the context of running, or jumping, or cheating we talk about JavaScript functions in the context of executing. 
+
+						So when we say the Execution Context, we're talking about the context in which a function is run. 
+
+						What does the Execution Context Object do? It tracks all the variables and functions which make up the context of the function's execution. This should sound familiar. When someone says something's 'in scope', they're referring to whether or not it's on the Execution Context Object. 
+
+						And just like scope is defined by functions, Execution Context Objects are created when functions are invoked including one extra one that defines the global scope. 
+
+						More specifically, the 
+
+						Let's take a quick look at how the compiler and engine utilize the execution context object...
+
+						(CLICK - NEXT SLIDE)
+					</aside>
+				</section>
+
+				<section>
+					<h2>3 Things the Compiler Does</h2>
+					<ol>
+						<li class="fragment" data-fragment-index="1">Declare and initialize function arguments</li>
+						<li class="fragment" data-fragment-index="2">Declare and initialize functions</li>
+						<li class="fragment" data-fragment-index="3">Declare the local variables including any anonymous functions assigned to a local variable, but without initializing them</li>
+					</ol>
+					<aside class="notes">
+						The compiler has 3 important jobs:
+
+						(CLICK - JOB 1)
+
+						(CLICK - JOB 2)
+
+						(CLICK - JOB 3)
+
+						Since that last one is a bit of a mouthful, let's take a second to look at an example of what we're talking about.
+
+						(CLICK - NEXT SLIDE)
+					</aside>
+				</section>
+
+				<section>
+					<h3>Declare the local variables including any anonymous functions assigned to a local variable, but without initializing them</h3>
+					<p>var magic = function(){ console.log('tada') };</p>
+					<h4>Execution Context Object</h4>
+					<p>{</p>
+					<div class="fragment fade-in" data-fragment-index="1">
+						<p>magic: undefined,</p>
+						<p>(anonymous): function(){ console.log('tada') }</p>
+					</div>
+					<p>}</p>			
+					<aside class="notes">
+						When the compiler encounters a statement like the one here. It will declare two attributes on the Execution Context Object.
+
+						(CLICK - ADD ATTRIBUTES)
+
+						One for the variable 'magic' and one for the anonymous function.
+
+						Note that the variable 'magic' is NOT initialized, but the anonymous function is.
+
+						All that being said, let's see the Execution Context Object in action.
 					</aside>
 				</section>
 
 				<section>
 					<h2>Execution Context Object</h2>
-					<span class="fragment fade-out" data-fragment-index="2">
-					<h4 class="fragment" data-fragment-index="1">
-					Compilation</h4></span><h4 class="fragment" data-fragment-index="6">Execution</h4>
-					<div style="display:inline-block;float:left;text-align:left;">
-						<p>function() {</p>				
-						<p class="fragment" data-fragment-index="2">var a;</p>
-						<p class="fragment" data-fragment-index="4">var b;</p>
-						<p><span class="fragment fade-out" data-fragment-index="2">var</span> a = 1;</p>
-						<p><span class="fragment fade-out" data-fragment-index="4">var</span> b = 2;</p>
-						<p>}()</p>
+					<div class="fragment fade-out" data-fragment-index="6">
+						<h4 class="fragment" data-fragment-index="1">
+							Compilation
+						</h4>
 					</div>
+					<h4 class="fragment" data-fragment-index="6">
+						Execution
+					</h4>
+					
+					<div style="display:inline-block;float:left;text-align:left;">
+						<p>outer(1);</p>				
+						<p>function outer (arg) {</p>				
+						<p>var local_var = 'foo'</p>				
+						<p>function inner () {</p>				
+						<p>console.log('inner');</p>				
+						<p>}</p>				
+						<p>inner();</p>				
+						<p>}</p>				
+					</div>
+					
+					<div style="display:inline-block;float:right;text-align:left;" class="fragment" data-fragment-index="2">
+						<p>{</p>
+						<p class="fragment" data-fragment-index="3">arg: 1,</p>
+						<p class="fragment" data-fragment-index="4">local_var: <span class="fragment fade-out" data-fragment-index="7">undefined,</span><span class="fragment" data-fragment-index="7">'foo',</span></p>
+						<p class="fragment" data-fragment-index="5">inner: function () {</p>
+						<p class="fragment" data-fragment-index="5">console.log('inner');</p>
+						<p class="fragment" data-fragment-index="5">}</p>
+						<p>}</p>
+					</div>
+					<aside class="notes">
+						(CLICK - COMPILER - 1)
+
+						An empty execution context object will be created when 'outer' is invoked
+
+						(CLICK - 2)
+
+						The arguments passed to the function will be declared and assigned
+
+						(CLICK - 3)
+
+						Local variables are declared, but not assigned
+
+						(CLICK - 4)
+
+						Functions are declared and assigned, but not executed
+
+						(CLICK - 5)
+
+						That does it for the Compiler, now the Engine is all set to execute
+
+						(CLICK - 6)
+
+						Local variables are assigned
+
+						(CLICK - 7)
+
+						When the Engine reaches 'inner' and executes it, another Execution Context Object will be created INSIDE of this one.
+
+						Knowing all this, the behavior of the second example will become more apparent.
+
+						(CLICK - NEXT SLIDE)
+					</aside>
+				</section>
+
+				<section>
+					<h2>Example 2</h2>
+					<div class="fragment fade-out" data-fragment-index="5">
+						<h4 class="fragment" data-fragment-index="1">
+							Compilation
+						</h4>
+					</div>
+					<h4 class="fragment" data-fragment-index="5">
+						Execution
+					</h4>
+					
+
+					<div style="display:inline-block;float:left;text-align:left;">
+						<p>var pigeon = 'coo';</p>				
+						<p>function magicCage() {</p>				
+						<p class="fragment" data-fragment-index="2">var pigeon;</p>
+						<p>console.log(pigeon);</p>
+						<p><span class="fragment fade-out" data-fragment-index="2">var pigeon;</p>
+						<p>}</p>
+						<p>magicCage()</p>
+					</div>
+					
+
 					<div style="display:inline-block;float:right;text-align:left;">
 						<p>{</p>
-						<p><span class="fragment" data-fragment-index="3">a:</span><span class="fragment" data-fragment-index="10">1</span><span class="fragment" data-fragment-index="3">undefined</span></p>
-						<p><span class="fragment" data-fragment-index="5">b:</span><span class="fragment" data-fragment-index="10">2</span><span class="fragment" data-fragment-index="5">undefined</span></p>
+						<p><span class="fragment" data-fragment-index="3">pigeon: undefined,</p>
+						<p><span class="fragment" data-fragment-index="4">console: Console</p>
 						<p>}</p>
 					</div>
 					<aside class="notes">
-						During the first run through the code, the compiler hoists all variable declarations to the top of the 
+						Let's start where the Engine has invoked 'magicCage' and created a new Execution Context Object
+
+						(CLICK - COMPILER - 1)
+
+						During the first run through the code, 
+
+						(CLICK - HOIST AND ADD TO OBJECT - 2)
+
+						the compiler hoists the declaration of 'pigeon' to the top of the scope
+
+						(CLICK - ADD ATTRIBUTE - 3)
+
+						and adds it as a key to the execution context object.
+
+						(CLICK - CONSOLE - 4)
+
+						Finally, it will add 'console' which is an instance of the class Console.
+
+						(CLICK - EXECUTION - 5)
+
+						The Engine only has to execute 'console.log(pigeon)'. 
 					</aside>
 				</section>
 
 				<section>
-					<h2>Three Things the Compilation Does</h2>
+					<h2>What to Take Away</h2>
 					<ol>
-						<li>Declares and </li>
+						<li class="fragment" data-fragment-index="1">JavaScript is compiled <em>immediately</em> before it's executed</li>
+						<li class="fragment" data-fragment-index="2">The compiler will declare all functions and variables</li>
+						<li class="fragment" data-fragment-index="3">Variable and function declarations are hoisted</li>
+						<li class="fragment" data-fragment-index="4">Functions and their arguments will be initialized</li>
+						<li class="fragment" data-fragment-index="5">Variable assignments will stay in place</li>
 					</ol>
-				</section>
+					<aside class="notes">
+						So what should you take away from this?
 
+						(CLICK)
 
-				<section><!--================= SLIDE =================-->
-					<h2>The Lifecycle of the Execution Object</h2>
-					<div style="float:left">
-						<p style="text-align:left;" class="fragment" data-fragment-index="1">outer(1);</p>
-						<p style="text-align:left;" class="fragment" data-fragment-index="2">function outer ( arg ) {</p>
-						<p style="text-align:left;" class="fragment" data-fragment-index="3">var local_var = 'foo';</p>
-						<p style="text-align:left;" class="fragment" data-fragment-index="1">function inner () {</p>
-						<p style="text-align:left;" class="fragment" data-fragment-index="1">console.log('inner');</p>
-						<p style="text-align:left;" class="fragment" data-fragment-index="1">}</p>
-						<p style="text-align:left;" class="fragment" data-fragment-index="1">inner();</p>
-						<p style="text-align:left;" class="fragment" data-fragment-index="1">}</p>
-					</div>
-					<div style="float:right">
-						<p>{</p>
-						<p>arg : 1,</p>
-						<p>local_var : undefined</p>
-						<p>inner : function () {</p>
-						<p>console.log('inner');</p>
-						<p>}</p>
-						<p>}</p>
-					</div>
+						(READ LIST ITEM)
 
+						The JavaScript Engine implements JavaScript with a compiler, which means that your code is going to be read twice: once during compilation and once during execution.
+
+						(CLICK)
+
+						(READ LIST ITEM)
+
+						This includes all variables passed as arguments to the function that was invoked.
+
+						(CLICK)
+
+						The compiler will hoist all variable and function declarations to the top of the scope.
+
+						(CLICK)
+
+						The compiler will initialize functions and the variables which were passed as arguments to the executed function.
+
+						(CLICK)
+
+						(READ LIST ITEM)
+					</aside>
 				</section>
 
 				<section>
@@ -210,6 +474,11 @@
 						<img class="book" data-src="media/SPA.jpg" height="325" width="260">
 						<li><a href="http://www.programmerinterview.com/index.php/general-miscellaneous/whats-the-difference-between-a-compiled-and-an-interpreted-language/">Compiled vs Interpreted Language</a></li>
 					</ul>
+					<aside class="notes">
+						If you're interested in reading more about how JavaScript is implemented including compilation and the execution object, I recommend checking out some of these resources.
+
+						Thanks for your time!
+					</aside>
 				</section>
 
 			</div>
