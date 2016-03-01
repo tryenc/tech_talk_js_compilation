@@ -39,13 +39,12 @@
 					<h3>Javascript Magic</h3>
 					<iframe data-src="https://repl.it/Bkwm/1" width="800px" height="300px"></iframe>
 					<aside class="notes">
-						Today we're going to talk about JavaScript Magic.
 
-						A lot of JavaScript programmers are satisfied with having little to no understanding of what's going on underneath the hood. When their code behaves in unexpected ways they'll chalk it up to JavaScript magic. Let's begin then with a few JavaScript magic tricks. 
+						A lot of JavaScript programmers have little to no understanding of what's going on under the hood when they execute their code. When their code doesn't behave the way they were expecting they just chalk it up to JavaScript magic. Let's take a look at a few examples.
 
 						(DON'T RUN - REFER TO CODING EXAMPLE)
 
-						Some programmers expect the declaration 'var DavidBlaine;' on line 2 to overwrite its previous assigment of 'I can levitate' and therefore log 'undefined'
+						Knowing that variables have the value of 'undefined' when they're declared, some programmers expect the declaration 'var DavidBlaine;' on line 2 to overwrite its previous assigment of 'I can levitate'
 
 						(RUN CODE)
 
@@ -59,12 +58,11 @@
 					<aside class="notes">
 						(EXAMPLE)
 
-						What do you think this one will log?
+						If the last one threw you for a loop, maybe you're expecting this one to log 'coo'. Let's take a look.
 
 						(RUN CODE)
 
-						Today we're going to break the ignorant JavaScripter's code and look behind the secret curtain...
-
+						Today I hope to demystify some of this mysterious behavior with...
 						(CLICK - NEXT SLIDE)
 					</aside>
 				</section>
@@ -94,9 +92,9 @@
 
 						(READ SUBHEADING)
 
-						If you've ever heard someone refer to a language as 'compiled' or 'interpreted', what they're actually talking about is how a programming language is implemented. Implementation is a very complicated topic and can involve a lot of minunte steps, but for the scope of this talk we're going to keep it pretty generalized. 
+						Implementation is a very complicated topic and can involve a lot of minunte steps, but for the scope of this talk we're going to keep it pretty general. 
 
-						Program Language Implementation is basically what happens between the source code you write and the corresponding machine code that your target machine will run.
+						In short, Program Language Implementation is basically what happens between the source code you write and the corresponding machine code that your target machine will run.
 
 						There are two general approaches to implementation...
 
@@ -123,22 +121,30 @@
 				<section><!--Interpretation-->
 					<h2>Interpretation</h2>
 					<p>An Interpreter is a program that goes statement by statement through your source code and executes the corresponding machine code directly on the target machine</p>
+					<ul>
+						<li class="fragment fade-in" data-fragment-index="1">Fast and Convenient</li>
+						<li class="fragment fade-in" data-fragment-index="2">Not optimized</li>
+					</ul>
 					<p class="fragment fade-in">Examples: Ruby and Python</p>			
 					
 					<aside class="notes">
 						(READ ON-SCREEN DESCRIPTION)
 
-						Imagine you and your target machine as two people who speak different languages... 
+						Imagine you're in France, but you don't speak French. You're lost so you ask a local for directions, but they don't speak english.
 
-						...which you do: you speak source code and it speaks machine code. 
+						What do you do?
 
-						If you and your target machine were sitting in the same room, an interpreter would be like a translater that's helping the two of you to communicate. 
+						If you used something like Google Translate, that would be similar to implementing an interpreter.
 
-						Important things to note are the fact that you would only have access to the translation DURING the translation. 
+						Using Google Translate would provide you with a fast and convenient solution...
 
-						The translation would be done on-the-fly and consequently, it might not be 'optimized' in the same way that it could be if say the translator had the ability to take the source code home and take the extra time to make sure all the colloquialisms made sense. 
+						(CLICK)
 
-						Think of Google translate vs. an actual human being. The translation that Google outputs is far from perfect, it's not optimal, but you get the gist of what it's saying.
+						but at the cost of quality.
+
+						(CLICK)
+
+						 Although you and the other person could probably make sense of the translation that you were getting back from Google, there would almost certainly be a more accurate way to translate it.
 
 						Examples of languages that traditionally implement an interpreter are...
 
@@ -151,15 +157,22 @@
 				<section><!--Compilation-->
 					<h2>Compilation</h2>
 					<p>A compiler is a program that reads source code, translates it into machine code, and then returns the translation <em>without</em> running it</p>
-
+					<ul>
+						<li class="fragment fade-in" data-fragment-index="1">Optimized for improved performance</li>
+						<li class="fragment fade-in" data-fragment-index="2">Requires and extra build step</li>
+					</ul>
 					<p class="fragment fade-in">Examples: Java and C</p>	
 					<aside class="notes">
 						(READ TITLE)
 
 						(READ DESCRIPTION)
 
-						Again, the compiler is the translator that takes it's times making sure the translation is accurate and optimized.
-						The most important take away here is that compilation does not result in the code being run by the machine. It's merely a build step.
+						You and your impromptu navigator hit it off and decide to stay in touch via email. Unfortunately, his emails are in french.
+
+						This time, instead of using Google Translate you ask a friend who speaks french to translate it for you. This would be closer to using a compiler. The interpretation is WAY better than what you were getting with Google Translate
+						(CLICK)
+
+						But now on top of having to send the email, you have this extra step of having the compiler translate for you, which takes time.
 						
 						Examples of languages that implement compilers include...
 						
@@ -176,7 +189,7 @@
 
 				<section>
 					<h2>Just-in-Time</h2>
-					<p>Source code is 'compiled' <em>during</em> execution.</p>
+					<p>Just-in-Time is a type of compiler that compiles your source code <em>during</em> execution.</p>
 					<p>Unlike other languages that implement compilers, JavaScript's compilation does <em>not</em> happen in a separate build step beforehand.</p>
 					<aside class="notes">
 						(READ TITLE)
@@ -184,8 +197,6 @@
 						(READ DESCRIPTION)
 
 						Since the compiler is a component of the JavaScript Engine, your source code will ACTUALLY be read by the engine twice: once during compilation and once during execution. 
-
-						Going forward it will help to think of this process as being a collaboration between two partners: the compiler and the JavaScript Engine. 
 
 						So what does the compiler do?
 
@@ -209,9 +220,9 @@
 
 						(CLICK - ASSIGNMENT)
 
-						and Assignment, which it will handle. When this code is executed, compiler will check to see if 'a' has already been assigned in the current scope, if it hasn't it will declare it and set it to the value of undefined. When compiler is done, Engine will begin. When Engine sees the variable 'a', it will check to see if it's available in the current scope and if so, assign it the value 2. 
+						and Assignment, which it will handle.
 
-						This is where the concept of hoisting comes in. Going back to the earlier example...
+						The separation of declaration and assignment is where the concept of hoisting comes in. Going back to the earlier example...
 
 						(CLICK - NEXT SLIDE)
 					</aside>
@@ -219,7 +230,7 @@
 
 				<section>
 					<h2>Hoisting</h2>
-					<p class="fragment fade-in" data-fragment-index="1">var DavidBlaine;</p>
+					<p class="fragment fade-in code" data-fragment-index="1">var DavidBlaine;</p>
 					<p>DavidBlaine = 'I can levitate';</p>
 					<p class="fragment fade-out" data-fragment-index="1">var DavidBlaine;</p>
 					<p>console.log(DavidBlaine);</p>
@@ -229,8 +240,6 @@
 						(CLICK - HOIST)
 
 						and hoist the declaration 'var DavidBlaine' to the top of the scope, leaving the assignment 'DavidBlaine='"I can levitate";' in place.
-
-						Keep in mind that's it's considered best practice to make all variable declarations at the top of every scope because this is most consistent with how the JavaScript Engine is going to process them.
 
 						So where are all these variables and their assigned values stored?
 					</aside>
@@ -246,17 +255,13 @@
 
 						(CLICK - EXECUTION = FUNCTION())
 
-						In the same way that an athlete can be in the context of running, or jumping, or cheating we talk about JavaScript functions in the context of executing. 
-
-						So when we say the Execution Context, we're talking about the context in which a function is run. 
+						In the same way that an athlete can be in the context of running, or jumping, a function can be in the context of executing or being run. 
 
 						What does the Execution Context Object do? It tracks all the variables and functions which make up the context of the function's execution. This should sound familiar. When someone says something's 'in scope', they're referring to whether or not it's on the Execution Context Object. 
 
-						And just like scope is defined by functions, Execution Context Objects are created when functions are invoked including one extra one that defines the global scope. 
+						And just like scope is defined by functions, Execution Context Objects are created when functions are invoked. 
 
-						More specifically, the 
-
-						Let's take a quick look at how the compiler and engine utilize the execution context object...
+						Let's talk a little more about what the compiler does.
 
 						(CLICK - NEXT SLIDE)
 					</aside>
@@ -286,14 +291,18 @@
 
 				<section>
 					<h3>Declare the local variables including any anonymous functions assigned to a local variable, but without initializing them</h3>
-					<p>var magic = function(){ console.log('tada') };</p>
-					<h4>Execution Context Object</h4>
-					<p>{</p>
-					<div class="fragment fade-in" data-fragment-index="1">
-						<p>magic: undefined,</p>
-						<p>(anonymous): function(){ console.log('tada') }</p>
+					<div style="width:800">
+						<div style="display:block;text-align:left;width:70%;margins:auto">
+							<p>var magic = function(){ console.log('tada') };</p>
+							<h4>Execution Context Object</h4>
+							<p>{</p>
+							<div class="fragment fade-in" data-fragment-index="1">
+								<p>magic: undefined,</p>
+								<p>(anonymous): function(){ console.log('tada') }</p>
+							</div>
+							<p>}</p>			
+						</div>
 					</div>
-					<p>}</p>			
 					<aside class="notes">
 						When the compiler encounters a statement like the one here. It will declare two attributes on the Execution Context Object.
 
@@ -318,7 +327,7 @@
 						Execution
 					</h4>
 					
-					<div style="display:inline-block;float:left;text-align:left;">
+					<div style="display:inline-block;float:left;text-align:left;" id="code">
 						<p>outer(1);</p>				
 						<p>function outer (arg) {</p>				
 						<p>var local_var = 'foo'</p>				
@@ -329,7 +338,7 @@
 						<p>}</p>				
 					</div>
 					
-					<div style="display:inline-block;float:right;text-align:left;" class="fragment" data-fragment-index="2">
+					<div style="display:inline-block;float:right;text-align:left;" class="fragment" data-fragment-index="2" id="code">
 						<p>{</p>
 						<p class="fragment" data-fragment-index="3">arg: 1,</p>
 						<p class="fragment" data-fragment-index="4">local_var: <span class="fragment fade-out" data-fragment-index="7">undefined,</span><span class="fragment" data-fragment-index="7">'foo',</span></p>
@@ -423,7 +432,9 @@
 
 						(CLICK - EXECUTION - 5)
 
-						The Engine only has to execute 'console.log(pigeon)'. 
+						All that's left for the Engine to do is to execute 'console.log(pigeon)'. Since pigeon is declared on the local Execution Context Object as undefined, that's what it will log. The Engine would only look for 'pigeon' outside if it's current Execution Context Object if it wasn't already defined.
+
+						So what to take away...
 					</aside>
 				</section>
 
@@ -498,12 +509,7 @@
 				history: true,
 				center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-				// Optional reveal.js plugins
-				// 'async' option set to 'true' is we want the plugin to load after reveal.js
-				// 'callback' option invokes a function after that library has loaded
-				// 'condition' option only loads the 'src' if the function passed to it evaluates to true
+				transition: 'slide',
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },

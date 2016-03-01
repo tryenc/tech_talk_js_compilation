@@ -9,5 +9,8 @@ log/*.log
 tmp/**
 node_modules/
 .sass-cache
-css/reveal.min.css
-js/reveal.min.js
+original.html
+old-slides.html
+CONTRIBUTING.md
+README.md
+LICENSE
